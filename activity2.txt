@@ -1,0 +1,10 @@
+<html>
+<head>
+<title>Welcome to my Website</title>
+</head>
+<body>
+<h1>My first Heading</h1>
+<p>My first paragraph.</p>
+<p style="color:red;">My first paragraph.</p>
+</body>
+</html>
