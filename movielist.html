@@ -1,0 +1,70 @@
+<html>
+<style>
+table,th,td{
+border : 2px dashed salmon;
+}
+th,td{
+padding: 6px;
+}
+</style>
+<body>
+
+<button type="button" onedblclick"=loadXMLDoc()"> Movie List Collection</button>
+<br><br>
+<table id="list"></table>
+
+<script>
+function loadXMLDoc(){
+var xmlhttp= new XMLHttpRequest();
+xmlhttp.onreadystatechange=function(){
+if (this.readyState == 4 && this.status == 200) {
+      myFunction(this);
+    }
+  };
+  xmlhttp.open("GET", "movielist.xml", true);
+  xmlhttp.send();
+}
+function myFunction(xml) {
+  var i;
+  var xmlDoc = xml.responseXML;
+  var table="<tr><th>Title</th><th>Date watched</th>Genre<th></th><th>Actors</th><th>Date released</th></tr>";
+  var x = xmlDoc.getElementsByTagName("LIST");
+  for (i = 0; i <x.length; i++) { 
+    table += "<tr><td>" +
+    x[i].getElementsByTagName("Title")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("Date watched")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("Genre")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("Actors")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("Date released")[0].childNodes[0].nodeValue +
+    "</td></tr>";
+  }
+  document.getElementById("demo").innerHTML = table;
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
